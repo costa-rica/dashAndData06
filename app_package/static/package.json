@@ -1,0 +1,17 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "WebAppTemplate01",
+  "main": "index.js",
+  "scripts": {
+    "compile_sass": "sass --watch scss:css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.51.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}

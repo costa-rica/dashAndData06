@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        
+        <!-- Import the Bootstrap stylesheet -->
+        <script src="../static/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+        <!-- Data Tables -->
+        <script type="text/javascript" src="{{ url_for('static', filename='aOld_js/jquery-3.5.1.js') }}"></script><!--need this one-->
+        <script type = "text/javascript"  src="{{ url_for('static', filename='aOld_js/jquery.dataTables.min.js') }}"></script><!--need this one-->
+        <link rel="stylesheet" type="text/css" href="../static/aOld_css/responsive.dataTables.min.css"><!--need this one-->
+        <script type="text/javascript" src="../static/aOld_js/dataTables.responsive.min.js"></script><!--need this one-->
+        <link rel="stylesheet" type="text/css" href="../static/aOld_css/jquery.dataTables.min_dashAndData.css"><!--need this one-->
+        <script type="text/javascript" src="../static/aOld_js/jquery.dataTables-1.1.20.min.js"></script><!--need this one-->
+
+        <!-- Maybe I do not need these: -->
+<!-- <script type = "text/javascript"  src="{{ url_for('static', filename='aOld_js/dataTables.bootstrap5.min.js') }}"></script> -->
+        <!-- <script src="../static/aOld_js/moment.min.js"></script> -->
+                <!-- <script type="text/javascript" src="../static/aOld_js/datetime.js"></script> -->
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <section class="navbar_section">
+    <div class="navbar navbar-expand-lg navbar-dark bg-primary navbar_custom">
+
+      <div class="nav_left">
+        <a href="{{ url_for('users.home') }}" >
+            <div class="logo">
+              <img class="dandd_logo" src="../static/images/homepage/DashDataV3_calibri_teal.png">
+            </div>
+        
+        </a>
+    </div>
+    <img class="mobile-menu" id="mobile-cta" src="../static/images/homepage/menu.svg" alt="Open Navigation">
+
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar_supplement"> -->
+    <nav>
+      <img id="mobile-exit" class="mobile-menu-exit" src="../static/images/homepage/exit.svg" alt="Close Navigation">
+      
+      <ul>
+        <li class="nav-link extra_wide">
+          <a class="" href="{{ url_for('users.dataTools') }}">Data Tools</a>
+        </li>
+        <li class="nav-link">
+          <a class="" href="{{ url_for('blog.blog_index') }}">Blog</a>
+        </li>
+
+        <li class="nav-link dropdown">
+          <a href="#" class="dropdown-toggle" id="aboutDropdown" role="button"
+              data-bs-toggle="dropdown"aria-expanded="false">About</a>
+              <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                <a class="dropdown-item" href="{{ url_for('users.about') }}">About</a>
+                <a class="dropdown-item" href="{{ url_for('users.pricing') }}">Pricing</a>
+              </div>
+        </li>
+        {% if current_user.is_authenticated %}
+        <li class="nav-link dropdown">
+          <a href="#" class="dropdown-toggle" id="usereDropdown" role="button"
+              data-bs-toggle="dropdown"aria-expanded="false">User</a>
+              <div class="dropdown-menu" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="{{ url_for('blog.blog_post') }}">Post</a>
+                <a class="dropdown-item" href="{{ url_for('blog.blog_user_home') }}">User Home</a>
+                <a class="dropdown-item" href="{{ url_for('users.logout') }}">Logout</a>
+              </div>
+        </li>
+        {% endif %}
+
+      </ul>
+
+    </nav>
+  </section>
+<div class = "flash_custom_parent">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+
+      <div class="alert alert-{{ category }} flash_custom" >
+        <i class="close icon" onclick=delete_flash(this)></i>
+
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+</div>
+
+{% block main %}{% endblock %}
+
+
+
+
+
+
+
+
+<!-- deleted AJAX script do i need it??? see old dashand data for code -->
+
+<script>
+  const mobileBtn = document.getElementById('mobile-cta')
+      nav = document.querySelector('nav')
+      mobileBtnExit = document.getElementById('mobile-exit');
+
+  mobileBtn.addEventListener('click', () => {
+      nav.classList.add('menu-btn');
+  })
+
+  mobileBtnExit.addEventListener('click', () => {
+      nav.classList.remove('menu-btn');
+  })
+</script>
+
+</body>
+</html>
+
+

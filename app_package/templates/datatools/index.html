@@ -1,0 +1,138 @@
+{% extends "_layout.html" %}
+
+{% block title %} data tools {% endblock %}
+
+{% block main %}
+<section class="data_tools_main">
+    <div class="container">
+    <h1>Data Tools</h1>
+    <ul class="data_tools_list">
+
+
+        <li>
+            <div class="data_tool_div"><a href="https://fileshare.demo.dashanddata.com">
+                <div class="data_tool_title">
+                    <div class="title_div">
+                        <h2>File Share Application</h2>
+                    </div>
+                    <!-- <div class="logo_div" id=logo_div_km>
+                        <img id="km-logo" src="../static/images/kmLogo.png" alt="KM logo">
+                    </div> -->
+
+                </div>
+                <div class="data_tools_description">
+                    This application is a means to share files through the internet. It functions very similar to Dropbox or Google Drive. Users can upload and download small or very large files to a safe place on the internet.
+                </div></a>
+            </div>
+        </li>
+
+
+
+        <li>
+            <div class="data_tool_div"><a href="https://demo.kmdashboard.dashboardsanddatabases.com/home">
+                <div class="data_tool_title">
+                    <div class="title_div">
+                        <h2>NHTSA Recalls and Investigations Dashboard</h2>
+                    </div>
+                    <div class="logo_div" id=logo_div_km>
+                        <img id="km-logo" src="../static/images/datatools/kmLogo.png" alt="KM logo">
+                    </div>
+
+                </div>
+                <div class="data_tools_description">
+                    National Highway Traffic Safety Administration (NHTSA) lists all recalls and investigation of US
+                     automotive manufactures vehicles. This application stores all records in a database and allows users 
+                     a front end to add notes, files, link records and add/remove records.<br/>
+                     This is the development server application used for Kinetic Metrics. There is no proprietary data.
+                </div></a>
+            </div>
+        </li>
+
+
+        <li>
+            <div class="data_tool_div "><a href="https://dev.shiftgarten.com">
+                <div class="data_tool_title">
+                    <div class="title_div">
+                        <h2>Shiftgarten Management Dashboard</h2>
+                    </div>
+                    <div class="logo_div" id="logo_div_cbc">
+                        <img id="cbc-logo" src="../static/images/datatools/cbc.logo.jpg" alt="CBC logo">
+                    </div>
+                </div>
+
+                <div class="data_tools_description">
+                    The first of my dash and database products. Click here (and Login as guest) to preview a 
+					restaurant management application. Data is all mock data. Feel free to poke around.<br/>
+                    This is the development server application used for Creative Bar Concepts. There is no proprietary data.
+                </div>
+            </a></div>
+        </li>
+
+        <li>
+            <div class="data_tool_div "><a href="{{ url_for('datatools_cage.cageCodeSearch') }}">
+                <div class="data_tool_title">
+                    <h2>CAGE Code Lookup</h2>
+                </div>
+                <div class="data_tools_description">
+                    Using the Defense Logistic Agency's batch text file I have stored the searchable information on this site.
+                </div>
+            </a></div>
+        </li>
+
+        <li>
+            <div class="data_tool_div "><a href="{{ url_for('datatools_bls.bls_menu') }}">
+                <div class="data_tool_title">
+                    <div class="title_div">
+                        <h2>BLS Indices</h2>
+                    </div>
+                <div class="logo_div" id="logo_div_bls">
+                    <img id="" src="../static/images/datatools/bls.logo.png" alt="BLS logo">
+                </div>
+            </div>
+                <div class="data_tools_description">
+                    Download the latest Bureau of Labor (BLS) producer price indices (PPI) in a formatted excel file
+                </div>
+            </a></div>
+        </li>
+
+    <li>
+        <div class="data_tool_div "><a href="https://what-sticks-health.com">
+            <div class="data_tool_title">
+                <div class="data_tool_title">
+                    <h2>What Sticks Health</h2>
+                </div>
+                <div class="logo_div" id="logo_div_wsh">
+                    <img id="wsh-logo" src="../static/images/datatools/tgelogo20210830_v2.png" alt="CBC logo">
+                </div>
+            </div>
+
+            <div class="data_tools_description">
+                What-Sticks-Health is a health data storage platform that provides feedback to the user. 
+				The goal of What-Sticks is unapologetically crude. We are throwing the spaghetti plate of data against 
+				the wall and seeing <i>what sticks</i>. Currently, it allows for Polar Personal device uploads... more coming soon!
+            </div>
+        </a></div>
+    </li>
+
+    <li>
+        <div class="data_tool_div "><a href="{{ url_for('datatools_security.getSTS') }}">
+            <div class="data_tool_title">
+                <h2>Security</h2>
+            </div>
+            <div class="data_tools_description">
+                Retrieve HTTP Strict-Transport-Security (HSTS) policy from URLs. Type in URLs or upload a
+                csv with URLs to search and return a table or csv with HSTS policies.
+            </div>
+        </a></div>
+    </li>
+
+</ul>
+
+
+
+    </div>
+</section>
+
+
+
+{% endblock %}
